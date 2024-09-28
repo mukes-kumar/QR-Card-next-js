@@ -1,10 +1,10 @@
 import React from 'react'
-import MainPage from '../../MainPage'
+// import MainPage from '../../MainPage'
 
 function EmailMain() {
   return (
     <>
-      <MainPage />
+      {/* <MainPage /> */}
     </>
   )
 }
