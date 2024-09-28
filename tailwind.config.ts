@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { cursorPointer } from 'tailwind-css/lib/css/classes';
+// import { cursorPointer } from 'tailwind-css/lib/css/classes';
 
 const config: Config = {
   content: [
