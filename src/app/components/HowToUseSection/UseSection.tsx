@@ -1,5 +1,5 @@
 import React from 'react'
-import { TbHandFinger } from "react-icons/tb";
+// import { TbHandFinger } from "react-icons/tb";
 import { LiaArrowUpSolid } from "react-icons/lia";
 import Link from 'next/link';
 

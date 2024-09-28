@@ -2,7 +2,7 @@
 import React, { useContext } from 'react'
 import SubmitUrl from './SubmitUrl';
 import ScannerHerosection from './ScannerHerosection';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 // import QRCode from 'qrcode.react';
 // import { VCard } from 'js-vcard';  // Import the 'vcards-js' library
 // import BtnDonwload from './BtnDonwload';
@@ -29,15 +29,11 @@ import Link from 'next/link';
 import { MyContext } from '../Context/context';
 
 
-type Str = {
-  png: string,
-  PNG1: string,
-  scanTrack: string,
-}
+
 
    
 
-function HeroSection({ icon }:any) {
+function HeroSection() {
 
 
 
@@ -52,7 +48,7 @@ function HeroSection({ icon }:any) {
     url: ''
   });
 
-  const [vCardString, setVCardString] = useState('');
+  // const [vCardString, setVCardString] = useState('');
 
   // const handleInputChange = (e) => {
   //   const { name, value } = e.target;
@@ -175,11 +171,11 @@ const bool =useContext(MyContext)
               <div className={`grid grid-cols-3 gap-6 lg:grid-cols-5 shadow-lg border-[1px] lg:p-6 pr-6 lg:space-x-2 space-x-8 space-y-6 pb-7 ${bool?'':'border-gray-900'}`}>
 
                 {
-                  Links.map((e, i) => {
+                  Links.map((e,) => {
                     return (
                       <>
                         {
-                          e.contact.map((e, i) => {
+                          e.contact.map((e,) => {
                             return (
                               <div key={e.name} className={`hover:border-[1px] duration-1000 border-red-400 inline-flex ${e.p} space-x-1  `}>
                                  <span className={`mt-2 text-[15px] md:text-[18px] `} ><e.icons /></span>
@@ -198,7 +194,7 @@ const bool =useContext(MyContext)
             </div>
             <SubmitUrl vCardData={vCardData} onChange={handleInputChange} />
           </div>
-          <ScannerHerosection isOpacity={isOpacity} vCardString={vCardString} bool={bool}/>
+          <ScannerHerosection isOpacity={isOpacity}  bool={bool}/>
 
         </div>
         </div>

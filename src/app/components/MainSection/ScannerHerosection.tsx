@@ -6,9 +6,12 @@ import SacnnerButton from './SacnnerButton'
 // import '../QrGenerator.css'; // Create a CSS file for styling
 import Image from 'next/image';
 
+type TypeBool={
+  bool: boolean,
+  isOpacity: boolean
+}
 
-
-function ScannerHerosection({ isOpacity, vCardString ,bool}:any) {
+function ScannerHerosection({ isOpacity ,bool}:TypeBool) {
 
 
   return (

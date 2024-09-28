@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 
@@ -14,7 +15,7 @@ function Cart({ name, DesName }: cart) {
         <div className='pl-[3rem] pb-[3rem] px-[3rem] pt-[1.5rem] block'>
           <span className="text-center px-2 py-[2px] rounded-xl text-sm	 text-[#fff] bg-[rgb(0,90,212)]">{name}</span>
           <div>
-            <img src='https://qr.io/assets/img/static.png' className="block ml-auto mr-auto max-w-[100%] h-auto border-none" alt='Not visible' />
+            <Image src='/Image1/static.png' className="block ml-auto mr-auto max-w-[100%] h-auto border-none" alt='Not visible' width={100} height={100} />
           </div>
           <h5 className='mb-[1rem] font-semibold text-lg text-[#2a354f] mt-7'>{DesName}</h5>
 

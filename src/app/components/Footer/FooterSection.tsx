@@ -1,49 +1,49 @@
 'use client'
-import React ,{useContext} from 'react'
+import React, { useContext } from 'react'
 import { ImLinkedin } from "react-icons/im";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
 import Link from 'next/link';
 import { MyContext } from '../Context/context';
+import Image from 'next/image';
 
 
 function FooterSection() {
   const bool = useContext(MyContext)
   return (
     <>
-    
-      <footer className={` pt-10  bottom-0 ${bool ?'bg-[#f3f7fa]':'bg-slate-950'} shadow-2xl`}>
+
+      <footer className={` pt-10  bottom-0 ${bool ? 'bg-[#f3f7fa]' : 'bg-slate-950'} shadow-2xl`}>
         <div className="container mx-auto px-4 ">
           <div className="grid lg:grid-cols-3 space-y-8">
             <div className=' space-y-4'>
               <div className="">
                 <Link href="/login" className="font-bold text-lg ">
-                  <img src='https://qr.io/logo/logo-title.png' className={`w-[103px] ${bool?'show':'hidden'}`} alt='Logo dark' />
-                  <img src='https://qr.io/logo/logo-title-white.png' alt="Logo Light" className={`${bool?'hidden':'show'} w-[103px]`} />
+                  <Image src='/Image1/logo-title.png' className={`w-[103px] ${bool ? 'show' : 'hidden'}`} alt='Logo dark' width={100} height={30} />
+                  <Image src='/Image1/logo-title-white.png' alt="Logo Light" className={`${bool ? 'hidden' : 'show'} w-[103px]`} width={100} height={30} />
                 </Link>
                 <p className='font-sans text-[18px] md:text-[20px] text-[#66799e] mb-[3px]'>Generate fully customized QR Codes, with color & shape, logo and keep track of how many people scan your QR Codes, from where and on what date.</p>
               </div>
               <div>
                 <h3 className="font-serif text-[21px]  md:text-[24px] text-[#2a354f] font-semibold">Follow Us</h3>
                 <ul className="flex ">
-                  <li ><a href="#" className='flex gap-4 text-[#2a354f] '>
-                    <span className='text-[28px]'>
-                      <a href='https://www.facebook.com/'>
-                        <FaFacebook />
-                      </a>
-                    </span>
-                    <span className='text-[28px]'>
-                      <a href='https://x.com/?lang=en'>
-                        <FaSquareXTwitter />
-                      </a>
-                    </span>
-                    <span className='text-[28px]'>
-                      <a href='https://www.linkedin.com/feed/'>
-                        <ImLinkedin />
-                      </a>
-                    </span>
-                  </a></li>
-
+                  <li  className='flex gap-4 text-[#2a354f]'>
+                      <span className='text-[28px]'>
+                        <a href='https://www.facebook.com/'>
+                          <FaFacebook />
+                        </a>
+                      </span>
+                      <span className='text-[28px]'>
+                        <a href='https://x.com/?lang=en'>
+                          <FaSquareXTwitter />
+                        </a>
+                      </span>
+                      <span className='text-[28px]'>
+                        <a href='https://www.linkedin.com/feed/'>
+                          <ImLinkedin />
+                        </a>
+                      </span>
+                  </li>
                 </ul>
               </div>
             </div>

@@ -1,10 +1,9 @@
 "use client"
-import Image from "next/image";
+// import Image from "next/image";
 // import Colorbutton from "./colorbutton";
-import { useContext, useState } from "react";
-import { MdNightlight } from "react-icons/md";
-import { CiLight } from "react-icons/ci";
-import NavBar from "./components/navbar/navbar";
+import { useContext } from "react";
+// import { MdNightlight } from "react-icons/md";
+// import { CiLight } from "react-icons/ci";
 // import ColorChange from "./navbar/colorChange";
 import HeroSection from "./components/MainSection/HeroSection";
 import FooterSection from "./components/Footer/FooterSection";
@@ -19,6 +18,7 @@ import QRCodeType from "./components/HowToUseSection/QRCodeType";
 
 
 import { MyContext } from "./components/Context/context";
+// import Checklink from "./checklink";
 
 export default function Home() {
 
@@ -50,9 +50,7 @@ export default function Home() {
        <div className={`bg-{color}  h-screen`} style={{backgroundColor: `{color}` }}>
          {/* <ColorChange bool={bool} handleColor={handleColor}/> */}
 
-
-         <HeroSection  bool={bool}/>
-
+         <HeroSection />
          <CustomiseCard />
           <CompaniesLogo />
          <BenefitsQR title={'Benefits from QR.io'} mt=""/>

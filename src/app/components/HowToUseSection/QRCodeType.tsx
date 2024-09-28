@@ -62,8 +62,9 @@ function QRCodeType({title, bool}:TypeBoolean) {
         },
       ]
     }
-
   ]
+
+  
   return (
     <>
       <div className={`relative pt-[80px] pb-[80px] block ${bool?'bg-white':'bg-black text-gray-100'}`}>
@@ -76,11 +77,11 @@ function QRCodeType({title, bool}:TypeBoolean) {
           <div className='ml-0 md:ml-10 grid md:grid-cols-2 lg:grid-cols-3 space-x-4 space-y-3 mr-2'>
           {
 
-            items.map((e, i) => {
+            items.map((e,) => {
               return (
                 <>
                   {
-                    e.contact.map((e, i) => {
+                    e.contact.map((e,) => {
                       return (
                         <>
                           <div className='grid '>

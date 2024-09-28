@@ -25,9 +25,8 @@ export default function RootLayout({
      }
   }
 
-  const icon = [
-   {link: 'FaHome'}
- ]
+  
+
   return (
     <html lang="en">
       <MyContext.Provider value={bool}>

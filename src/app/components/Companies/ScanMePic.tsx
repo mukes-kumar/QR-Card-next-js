@@ -1,16 +1,14 @@
 import React from 'react'
-import img1 from '../Image1/growth.png'
+import Image from 'next/image'
 
 
-type TitleType={
-  bool: boolean
-}
 
-function ScanMePic({bool}:TitleType) {
+
+function ScanMePic() {
   return (
     <>
-       <div className='mt-[48px] flex max-w-[100%]  pr-[15px] pl-[15px] mb-20'>
-         <img src="/Image1/growth.png" alt='not'/>
+       <div className='mt-[48px] flex justify-center items-center mx-auto max-w-[500px] text-center pr-[15px] pl-[25px] mb-20'>
+         <Image src="/Image1/growth.png" alt='not'width={900} height={100}/>
        </div>
     </>
   )

@@ -5,8 +5,11 @@ import {  FaUserPlus } from "react-icons/fa";
 import { FaArrowRight } from "react-icons/fa";
 // import { Link, useNavigate } from 'react-router-dom'
 
+type TypeBool ={
+  open: boolean
+}
 
-function Button(props:any) {
+function Button(props:TypeBool) {
   return (
     <>
       <div className={`flex space-x-4 mt-3 md:ml-20 lg:ml-44 ml-36`}>

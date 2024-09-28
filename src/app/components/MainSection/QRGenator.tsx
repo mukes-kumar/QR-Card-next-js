@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from 'react'
+import React, {  useState } from 'react'
 
 function QRGenator() {
 
@@ -14,7 +14,7 @@ function QRGenator() {
         <input type='url' name='url' value={url} onChange={(e) => setUrl(e.target.value)} placeholder='Enter Url To generate QR Code' />
         <input type='submit' value="Generate QR Code" />
       </form>
-      <img src={`'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='https://google.com'`} alt='not'/>
+      {/* <img src={`'https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl='https://google.com'`} alt='not'/> */}
     </div>
   )
 }

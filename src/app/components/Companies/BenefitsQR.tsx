@@ -26,7 +26,7 @@ function BenefitsQR({title,mt}:TitleType) {
                 <BenefitsBelow bool={bool}/>
              </div>
              <div>
-                <ScanMePic bool={bool}/>
+                <ScanMePic />
              </div>
 
           </div>

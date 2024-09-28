@@ -4,13 +4,11 @@ import ScanTrack from './ScanTrack';
 
 
 type Str = {
-  png: string,
-  PNG1: string,
-  scanTrack: string,
+  
   isOpacity:boolean
 }
 
-function SacnnerButton({isOpacity}:any) {
+function SacnnerButton({isOpacity}:Str) {
 
   const png = "Download";
   const PNG1 = "PNG";

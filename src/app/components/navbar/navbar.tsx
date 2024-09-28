@@ -15,9 +15,11 @@ import Image from 'next/image';
 
 import ChangeColorButton from './changeColorButton';
 
+interface MyComponentProps {
+  handleColor: () => void;
+}
 
-
-function NavBar({ handleColor }:any) {
+function NavBar({ handleColor }:MyComponentProps) {
   const bool = useContext(MyContext)
   const Links = [
     { name: "QR Code", link: "/QR-Code" },
@@ -74,8 +76,8 @@ function NavBar({ handleColor }:any) {
           {
             Links.map((link) => (
               <>
-                <li key={link.name} className={`text-lg lg:text-xl md:text-[18px] ${open?'mt-4':'mt'}`}>
-                  <Link href={link.link} className={` hover:text-blue-400 duration-300 grid  space-y-4 ${bool ? '' : 'text-[#a5afc9] hover:text-blue-400'} pl-2 xl:ml-6 mr-0 `}>{link.name}
+                <li key={link.name} className={` text-lg lg:text-xl md:text-[18px] ${open?'mt-4':'mt'} ${bool?'':'text-gray-400'}`}>
+                  <Link href={link.link} className={` hover:text-blue-400 duration-300 grid  space-y-4  pl-2 xl:ml-6 mr-0 `}>{link.name}
 
 
                     {

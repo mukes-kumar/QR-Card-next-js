@@ -1,7 +1,16 @@
 import React from 'react'
 import UrlForm from './UrlForm'
 
-function SubmitUrl({vCardData , onChange}:any) {
+
+interface MyComponentProps {
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    vCardData: {
+        firstName: string;
+        url: string;
+    }
+};  
+
+function SubmitUrl({vCardData ,onChange}:MyComponentProps) {
 
     return (
         <>
