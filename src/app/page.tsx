@@ -53,17 +53,17 @@ export default function Home() {
          <HeroSection />
          <CustomiseCard />
           <CompaniesLogo />
-         <BenefitsQR title={'Benefits from QR.io'} mt=""/>
+         <BenefitsQR title={'Benefits from QR.io'}/>
 
-         <DynamicVSStaticQR bool={bool}/>
+         <DynamicVSStaticQR />
 
-         <DynamicCart name={name} DesName={DesName} ShortName={ShortName} bool={bool}/>
+         <DynamicCart name={name} DesName={DesName} ShortName={ShortName} />
 
          <UseSection bool={bool}/>
 
          <QuickRespose />
 
-         <QRCodeType bool={bool} title="QR Code Types"/>
+         <QRCodeType title="QR Code Types"/>
          <FooterSection />
       </div>
      </>

@@ -1,8 +1,9 @@
-// import shadows from '@mui/material/styles/shadows'
-import React from 'react'
+'use client'
+import React, { useContext } from 'react'
 import StaticCart from './StaticCart'
 import Link from 'next/link'
 import Image from 'next/image';
+import { MyContext } from '../../Context/context';
 
 
 
@@ -10,16 +11,15 @@ type cart = {
   name: string,
   DesName: string,
   ShortName: string
-  bool: boolean
 }
 
-function DynamicCart({name, DesName, ShortName, bool}: cart) {
+function DynamicCart({name, DesName, ShortName}: cart) {
 
   const staticN= 'STATIC';
   const DesStatic='Static QR Codes Explained'
   const ShortStaticN='Static'
 
-
+   const bool= useContext(MyContext)
   return (
     <>
       {/* <a href='/hii' className='cursor-pointer'>Hiii</a> */}

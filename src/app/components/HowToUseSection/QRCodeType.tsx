@@ -1,17 +1,19 @@
-import React from 'react'
+'use client'
+import React, { useContext } from 'react'
 import { FaLink, FaSms, FaWhatsapp, FaWifi, } from "react-icons/fa";
 import { MdEmail, MdOutlineMenu, MdCall } from "react-icons/md";
 
 import { BsFillPersonVcardFill, BsCalendar2EventFill } from "react-icons/bs";
 import Link from 'next/link';
+import { MyContext } from '../Context/context';
 
 type TypeBoolean ={
   title: string,
-  bool: boolean
 } 
 
-function QRCodeType({title, bool}:TypeBoolean) {
-
+function QRCodeType({title}:TypeBoolean) {
+  
+  const bool = useContext(MyContext);
   const items = [
     {
       contact: [

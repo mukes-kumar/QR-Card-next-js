@@ -1,14 +1,15 @@
-import React from 'react'
+'use client'
+import React, { useContext } from 'react'
+import { MyContext } from '../../Context/context'
 
 
-type TypeBoolean={
-  bool: boolean
-}
 
-function DynamicVSStaticQR({bool}: TypeBoolean) {
+
+function DynamicVSStaticQR() {
+  const bool = useContext(MyContext);
   return (
     <>
-       <div className={`relative pb-[224px] ${bool?'bg-[#f3f7fa]':'bg-slate-950'}`}>
+       <div className={`relative pb-[224px] ${bool? 'bg-gray-100':'bg-slate-950'}`}>
          <div className='w-[100%] pr-[15px] pl-[15px] mr-auto ml-auto '>
              <div className='flex flex-wrap flex-col  justify-center text-center'>
                 <div className='text-[#2a354f] items-center mt-16 mb-8'>

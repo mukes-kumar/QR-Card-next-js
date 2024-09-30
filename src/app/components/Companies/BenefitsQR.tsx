@@ -6,15 +6,14 @@ import { MyContext } from '../Context/context'
 
 type TitleType={
    title: string
-   mt: string
 }
 
-function BenefitsQR({title,mt}:TitleType) {
+function BenefitsQR({title}:TitleType) {
    const bool = useContext(MyContext)
 
   return (
      <>
-       <div className={`${mt} pt-16 ${bool?'bg-white text-teal-700':'bg-black text-slate-300'} `}>
+       <div className={` pt-16 ${bool?'bg-white text-teal-700':'bg-black text-slate-300'} `}>
           <div className='flex flex-wrap items-center'>
              <div className='ml-8 md:ml-20 space-y-8'>
                 <h2 className={`font-semibold mb-[24px] font-serif text-3xl md:text-4xl ${bool?'text-gray-700':'text-gray-100'}`}>{title}
