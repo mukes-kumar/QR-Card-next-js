@@ -1,9 +1,9 @@
 'use client'
 import React, {useContext} from 'react'
 // import mobileIcon from './assets/mobile-icon.jpg';
-import { FaMobileAlt } from "react-icons/fa";
-import { IoBarChartSharp } from "react-icons/io5";
-import { IoIosColorPalette, IoLogoBuffer } from "react-icons/io";
+// import { FaMobileAlt } from "react-icons/fa";
+// import { IoBarChartSharp } from "react-icons/io5";
+// import { IoIosColorPalette, IoLogoBuffer } from "react-icons/io";
 import { MyContext } from '../components/Context/context';
 import { FaPlus } from "react-icons/fa6";
 import { FaLongArrowAltUp } from "react-icons/fa";

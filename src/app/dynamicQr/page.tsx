@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import FooterSection from '../components/Footer/FooterSection'
 import QRCodeType from '../components/HowToUseSection/QRCodeType'
 import { MyContext } from '../components/Context/context'
-import StaticQR from '../staticQr/QRbox'
+// import StaticQR from '../staticQr/QRbox'
 import DynamicQRBox from './DynamicQRBox'
 
 
