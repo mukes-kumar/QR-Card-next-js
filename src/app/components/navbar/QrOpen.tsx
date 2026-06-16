@@ -1,37 +1,46 @@
-'use client'
+// components/QrOpen.tsx (simplified version if you still want to use it)
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaQrcode, FaHistory, FaCamera } from 'react-icons/fa';
 import Link from 'next/link';
-import React from 'react'
-import { IoMdCube } from "react-icons/io";
-import { PiArrowsLeftRightDuotone } from "react-icons/pi";
 
-interface MyComponentProps {
-  // handleQrCode: () => void;
-  isOpenQR : boolean
+interface QrOpenProps {
+  isOpenQR: boolean;
 }
 
-function QrOpen({isOpenQR}: MyComponentProps) {
+const QrOpen: React.FC<QrOpenProps> = ({ isOpenQR }) => {
+  const qrItems = [
+    { name: "Generate QR", link: "/QR-Code/generate", icon: FaQrcode },
+    { name: "Scan QR", link: "/QR-Code/scan", icon: FaCamera },
+    { name: "History", link: "/QR-Code/history", icon: FaHistory },
+  ];
+
   return (
-    <div className={`lg:absolute z-10 lg:mt-10 mt-3 lg:bg-white w-22 origin-top-right rounded-md ml-7   ${isOpenQR ? 'show':'hidden'} 
-      focus:outline-none`} role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-      <div className="py-2 space-y-3" role="none">
+    <AnimatePresence>
+      {isOpenQR && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: 'auto' }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden"
+        >
+          <div className="mt-2 ml-4 space-y-1">
+            {qrItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.link}
+                className="flex items-center space-x-3 px-4 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-white/10 transition-all duration-200"
+              >
+                <item.icon className="w-4 h-4 text-blue-500" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">{item.name}</span>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
 
-        <Link href="/dynamicQr" className="text-gray-500 px-4 py-2 text-xl leading-5 hover:text-gray-600 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out flex gap-1">
-        <IoMdCube className='text-green-700'/>  <span>Static
-        Item</span>
-        </Link>
-        <span className='text-[12px] pl-9 text-green-700'>Looking for answers? Ask us</span>
-        
-        <div className='py-[1px] bg-gray-300'></div>
-
-        <Link href="/staticQr" className="text-gray-500 px-4 py-2 text-xl leading-5 hover:text-gray-600 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out flex gap-1">
-          <PiArrowsLeftRightDuotone className='text-blue-600 font-bold text-xl'/>
-          <span>Dynamic
-          Item</span></Link>
-          <span className='text-[12px] pl-10 text-green-700'>Examples and guides</span>
-
-      </div>
-    </div>
-  )
-}
-
-export default QrOpen
+export default QrOpen;

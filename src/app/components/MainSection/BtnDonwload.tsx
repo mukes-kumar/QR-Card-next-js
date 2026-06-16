@@ -1,92 +1,92 @@
 'use client'
-import React from 'react'
-import { FaDownLong } from "react-icons/fa6";
+import React, { useRef } from 'react';
+import { QRCodeCanvas } from 'qrcode.react';
+import { FaDownload } from 'react-icons/fa';
 
-type QrDownloadProps = {
+interface BtnDonwloadProps {
   qrRef: React.RefObject<HTMLDivElement>;
   url: string;
-  isOpacity?: never;
-  png?: never;
-  PNG1?: never;
-};
-
-type LegacyBtnProps = {
-  isOpacity: boolean;
-  png: string;
-  PNG1: string;
-  qrRef?: never;
-  url?: never;
-};
-
-type BtnDownloadProps = QrDownloadProps | LegacyBtnProps;
-
-function isQrDownloadProps(props: BtnDownloadProps): props is QrDownloadProps {
-  return 'qrRef' in props && props.qrRef !== undefined;
+  qrSettings?: {
+    fgColor: string;
+    bgColor: string;
+    size: number;
+    shape: string;
+    logo: string | null;
+    logoSize: number;
+  };
 }
 
-function BtnDonwload(props: BtnDownloadProps) {
-  const handleDownload = async () => {
-    if (!isQrDownloadProps(props)) return;
+function BtnDonwload({ qrRef, url, qrSettings }: BtnDonwloadProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
-    const { qrRef } = props;
-    if (!qrRef || !qrRef.current) return;
+  const downloadQR = () => {
+    // Create a canvas to combine QR code with logo
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
 
-    try {
-      const canvas = qrRef.current.querySelector('canvas');
-      if (!canvas) {
-        alert('QR Code not found');
-        return;
-      }
+    if (!ctx) return;
 
-      canvas.toBlob((blob) => {
-        if (!blob) {
-          alert('Unable to create image');
-          return;
-        }
+    // Get QR code as image
+    const qrCanvas = document.createElement('canvas');
+    QRCodeCanvas({
+      value: url,
+      size: qrSettings?.size || 300,
+      level: 'H',
+      includeMargin: true,
+      fgColor: qrSettings?.fgColor || '#000000',
+      bgColor: qrSettings?.bgColor || '#ffffff',
+      imageSettings: qrSettings?.logo ? {
+        src: qrSettings.logo,
+        height: qrSettings.logoSize || 60,
+        width: qrSettings.logoSize || 60,
+        excavate: true
+      } : undefined
+    }, qrCanvas);
 
+    // Set canvas size
+    canvas.width = qrSettings?.size || 300;
+    canvas.height = qrSettings?.size || 300;
+
+    // Draw QR code
+    const qrImage = new Image();
+    qrImage.onload = () => {
+      ctx.drawImage(qrImage, 0, 0);
+
+      // Draw logo if exists
+      if (qrSettings?.logo) {
+        const logo = new Image();
+        logo.onload = () => {
+          const logoSize = qrSettings.logoSize || 60;
+          const center = (qrSettings.size || 300) / 2;
+          ctx.drawImage(logo, center - logoSize / 2, center - logoSize / 2, logoSize, logoSize);
+
+          // Download
+          const link = document.createElement('a');
+          link.download = 'qrcode.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+        };
+        logo.src = qrSettings.logo;
+      } else {
+        // Download without logo
         const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = `QR-Code-${Date.now()}.png`;
-        document.body.appendChild(link);
+        link.download = 'qrcode.png';
+        link.href = canvas.toDataURL('image/png');
         link.click();
-        document.body.removeChild(link);
-        URL.revokeObjectURL(link.href);
-      });
-    } catch (error) {
-      console.error('Error downloading QR code:', error);
-      alert('Error downloading QR code');
-    }
+      }
+    };
+    qrImage.src = qrCanvas.toDataURL('image/png');
   };
 
-  if (!isQrDownloadProps(props)) {
-    return (
-      <div className='mt-6 flex mx-3'>
-        <div className='flex'>
-          <button
-            className={`bg-blue-500 ${props.isOpacity ? 'opacity-100' : 'opacity-40 cursor-not-allowed'} w-auto text-white font-bold md:py-3 py-2 md:px-8 px-4 sm:text-sm text-lg lg:px-8 rounded text-center md:py-4 md:px-4 transition-colors duration-300 flex items-center gap-2`}
-            disabled={!props.isOpacity}
-          >
-            <FaDownLong />
-            <span>{props.png}</span>
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <div className='mt-6 flex mx-3'>
-      <div className='flex'>
-        <button
-          onClick={handleDownload}
-          className='bg-blue-500 hover:bg-blue-600 w-auto text-white font-bold md:py-3 py-2 md:px-8 px-4 sm:text-sm text-lg lg:px-8 rounded text-center md:py-4 md:px-4 transition-colors duration-300 flex items-center gap-2'
-        >
-          <FaDownLong />
-          <span>Download PNG</span>
-        </button>
-      </div>
-    </div>
-  )
+    <button
+      onClick={downloadQR}
+      className="flex items-center space-x-2 px-6 py-3 mt-4 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 hover:scale-105"
+    >
+      <FaDownload />
+      <span>Download PNG</span>
+    </button>
+  );
 }
 
-export default BtnDonwload
+export default BtnDonwload;

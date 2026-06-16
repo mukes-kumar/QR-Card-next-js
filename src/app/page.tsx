@@ -22,50 +22,50 @@ import { MyContext } from "./components/Context/context";
 
 export default function Home() {
 
-//   const [color, setColor] = useState('white');
-//   const [bool , setBool] = useState(true);
-//   const handleColor = ()=>{
-//      if(color === 'white'){
-//         setColor('black')
-//         setBool(false)
-//      }else{
-//        setColor('white')
-//        setBool(true)
-//      }
-//   }
+  //   const [color, setColor] = useState('white');
+  //   const [bool , setBool] = useState(true);
+  //   const handleColor = ()=>{
+  //      if(color === 'white'){
+  //         setColor('black')
+  //         setBool(false)
+  //      }else{
+  //        setColor('white')
+  //        setBool(true)
+  //      }
+  //   }
 
-//   const icon = [
-//    {link: 'FaHome'}
-//  ]
+  //   const icon = [
+  //    {link: 'FaHome'}
+  //  ]
 
 
- const name= 'DYNAMIC';
-  const DesName='Dynamic QR Codes Explains'
-  const ShortName='Dynamic'
+  const name = 'DYNAMIC';
+  const DesName = 'Dynamic QR Codes Explains'
+  const ShortName = 'Dynamic'
 
   const bool = useContext(MyContext)
 
   return (
-     <>
-       <div className={`bg-{color}  h-screen`} style={{backgroundColor: `{color}` }}>
-         {/* <ColorChange bool={bool} handleColor={handleColor}/> */}
+    <>
+      <div className={`bg-{color}  h-screen`} style={{ backgroundColor: `{color}` }}>
+        {/* <ColorChange bool={bool} handleColor={handleColor}/> */}
 
-         <HeroSection />
-         <CustomiseCard />
-          <CompaniesLogo />
-         <BenefitsQR title={'Benefits from QR.io'}/>
+        <HeroSection />
+        <CustomiseCard />
+        <CompaniesLogo />
+        <BenefitsQR title={'Benefits from QR.io'} />
 
-         <DynamicVSStaticQR />
+        <DynamicVSStaticQR />
 
-         <DynamicCart name={name} DesName={DesName} ShortName={ShortName} />
+        <DynamicCart name={name} DesName={DesName} ShortName={ShortName} />
 
-         <UseSection bool={bool}/>
+        <UseSection bool={bool} />
 
-         <QuickRespose />
+        <QuickRespose />
 
-         <QRCodeType title="QR Code Types"/>
-         <FooterSection />
+        <QRCodeType title="QR Code Types" />
+        <FooterSection />
       </div>
-     </>
+    </>
   );
 }
