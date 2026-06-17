@@ -364,7 +364,7 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
                                     {dropdowns[link.name].cta && (
                                       <div className="pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
                                         <Link
-                                          href={dropdowns[link.name].cta.link}
+                                          href={dropdowns[link.name].cta?.link ?? '#'}
                                           className={`
                                             inline-flex items-center space-x-2 px-5 py-2.5 rounded-xl
                                             text-sm font-medium transition-all duration-300
@@ -372,7 +372,7 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
                                             shadow-lg shadow-blue-600/30 hover:shadow-xl hover:scale-105
                                           `}
                                         >
-                                          <span>{dropdowns[link.name].cta.text}</span>
+                                          <span>{dropdowns[link.name].cta?.text}</span>
                                           <FaArrowRight className="w-3 h-3" />
                                         </Link>
                                       </div>
@@ -555,7 +555,7 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
                                     <div className="text-sm font-semibold text-gray-500 mb-3">
                                       Featured
                                     </div>
-                                    {dropdowns[link.name].featured.map((item) => (
+                                    {dropdowns[link.name].featured?.map((item) => (
                                       <Link
                                         key={item.name}
                                         href={item.link}
@@ -601,7 +601,7 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
                                 {/* Mobile CTA */}
                                 {dropdowns[link.name].cta && (
                                   <Link
-                                    href={dropdowns[link.name].cta.link}
+                                    href={dropdowns[link.name].cta?.link ?? '#'}
                                     className={`
                               flex items-center justify-center space-x-2 w-full p-4 rounded-xl
                               text-sm font-medium transition-all duration-200
@@ -609,7 +609,7 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
                             `}
                                     onClick={closeMobileMenu}
                                   >
-                                    <span>{dropdowns[link.name].cta.text}</span>
+                                    <span>{dropdowns[link.name].cta?.text}</span>
                                     <FaArrowRight className="w-4 h-4" />
                                   </Link>
                                 )}
