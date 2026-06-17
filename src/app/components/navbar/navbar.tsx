@@ -463,8 +463,6 @@ const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
         ${bool ? 'bg-white' : 'bg-[#0a0a0a]'}
         ${scrolled ? 'top-[64px]' : 'top-[72px]'}
         overflow-y-auto
-        scrollbar-thin scrollbar-thumb-blue-500 scrollbar-track-transparent
-        hover:scrollbar-thumb-blue-600
 
       `}
               style={{
