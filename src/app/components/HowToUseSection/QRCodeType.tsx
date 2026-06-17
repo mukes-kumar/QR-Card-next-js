@@ -5,7 +5,7 @@ import { MdEmail, MdOutlineMenu, MdCall } from "react-icons/md";
 import { BsFillPersonVcardFill, BsCalendar2EventFill } from "react-icons/bs";
 import Link from 'next/link';
 import { MyContext } from '../Context/context';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 type TypeBoolean = {
   title: string,
@@ -37,7 +37,7 @@ function QRCodeType({ title }: TypeBoolean) {
     return matchesSearch && matchesCategory;
   });
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -47,15 +47,14 @@ function QRCodeType({ title }: TypeBoolean) {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   };
@@ -73,6 +72,7 @@ function QRCodeType({ title }: TypeBoolean) {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-8 md:mb-12"
           >
             <span className={`
@@ -102,6 +102,7 @@ function QRCodeType({ title }: TypeBoolean) {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="flex flex-col sm:flex-row gap-3 md:gap-4 mb-8 md:mb-10"
           >
             <div className="flex-1 relative">

@@ -3,8 +3,8 @@ import React, { useContext } from 'react'
 import BenefitsBelow from './BenefitsBelow'
 import ScanMePic from './ScanMePic'
 import { MyContext } from '../Context/context'
-import { motion } from 'framer-motion'
-import { FaChartLine, FaMobileAlt, FaCode, FaUsers, FaClock, FaShieldAlt } from 'react-icons/fa'
+import { motion, Variants } from 'framer-motion'
+import { FaChartLine, FaUsers, FaClock, FaShieldAlt } from 'react-icons/fa'
 
 type TitleType = {
    title: string
@@ -13,8 +13,8 @@ type TitleType = {
 function BenefitsQR({ title }: TitleType) {
    const bool = useContext(MyContext)
 
-   // Animation variants
-   const containerVariants = {
+   // Define variants with correct Framer Motion types
+   const containerVariants: Variants = {
       hidden: { opacity: 0 },
       visible: {
          opacity: 1,
@@ -24,15 +24,14 @@ function BenefitsQR({ title }: TitleType) {
       }
    }
 
-   const itemVariants = {
+   const itemVariants: Variants = {
       hidden: { opacity: 0, y: 20 },
       visible: {
          opacity: 1,
          y: 0,
          transition: {
-            type: "spring",
-            stiffness: 300,
-            damping: 20
+            duration: 0.5,
+            ease: "easeOut"
          }
       }
    }

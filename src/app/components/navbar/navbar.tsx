@@ -7,7 +7,7 @@ import { MdOutlineDashboardCustomize, MdOutlineDesignServices } from "react-icon
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import ChangeColorButton from './changeColorButton';
+// import ChangeColorButton from './changeColorButton';
 
 interface MyComponentProps {
   handleColor: () => void;
@@ -23,6 +23,7 @@ interface DropdownItem {
 }
 
 const NavBar: React.FC<MyComponentProps> = ({ handleColor }) => {
+  console.log('jhdsjk', handleColor);
   const bool = useContext(MyContext);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);

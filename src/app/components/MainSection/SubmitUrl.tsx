@@ -3,8 +3,8 @@ import React, { useRef, useState, useContext } from 'react'
 import { QRCodeCanvas } from 'qrcode.react';
 import BtnDonwload from './BtnDonwload';
 import { MyContext } from '../Context/context';
-import { FaPalette, FaShapes, FaImage, FaDownload, FaEye, FaUndo } from 'react-icons/fa';
-import { IoColorPalette, IoShapes, IoLogoBuffer } from 'react-icons/io5';
+import { FaPalette, FaImage, FaUndo } from 'react-icons/fa';
+// import { IoColorPalette, IoShapes, IoLogoBuffer } from 'react-icons/io5';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface MyComponentProps {
@@ -136,20 +136,20 @@ function SubmitUrl({ vCardData, onChange }: MyComponentProps) {
     };
 
     // Shape selector component
-    const ShapeSelector = ({ active, onClick }: { active: boolean; onClick: () => void }) => (
-        <button
-            onClick={onClick}
-            className={`
-                w-10 h-10 rounded-lg border-2 transition-all duration-200
-                ${active
-                    ? 'border-blue-500 bg-blue-500/10'
-                    : bool ? 'border-gray-300 hover:border-gray-400' : 'border-gray-600 hover:border-gray-500'}
-                flex items-center justify-center
-            `}
-        >
-            <div className={`w-6 h-6 rounded-sm ${active ? 'bg-blue-500' : bool ? 'bg-gray-400' : 'bg-gray-500'}`} />
-        </button>
-    );
+    // const ShapeSelector = ({ active, onClick }: { active: boolean; onClick: () => void }) => (
+    //     <button
+    //         onClick={onClick}
+    //         className={`
+    //             w-10 h-10 rounded-lg border-2 transition-all duration-200
+    //             ${active
+    //                 ? 'border-blue-500 bg-blue-500/10'
+    //                 : bool ? 'border-gray-300 hover:border-gray-400' : 'border-gray-600 hover:border-gray-500'}
+    //             flex items-center justify-center
+    //         `}
+    //     >
+    //         <div className={`w-6 h-6 rounded-sm ${active ? 'bg-blue-500' : bool ? 'bg-gray-400' : 'bg-gray-500'}`} />
+    //     </button>
+    // );
 
     return (
         <div className="mt-5 w-full pb-4">
@@ -330,16 +330,16 @@ function SubmitUrl({ vCardData, onChange }: MyComponentProps) {
                                         {['square', 'rounded', 'circle'].map((shape) => (
                                             <button
                                                 key={shape}
-                                                onClick={() => handleShapeChange(shape as any)}
+                                                onClick={() => handleShapeChange(shape as 'square' | 'rounded' | 'circle')}
                                                 className={`
-                                                    px-4 py-2 rounded-lg text-sm font-medium
-                                                    transition-all duration-200
-                                                    ${qrSettings.shape === shape
+                px-4 py-2 rounded-lg text-sm font-medium
+                transition-all duration-200
+                ${qrSettings.shape === shape
                                                         ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/30'
                                                         : bool
                                                             ? 'bg-gray-200 text-gray-700 hover:bg-gray-300'
                                                             : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}
-                                                `}
+            `}
                                             >
                                                 {shape.charAt(0).toUpperCase() + shape.slice(1)}
                                             </button>

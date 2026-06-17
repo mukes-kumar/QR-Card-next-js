@@ -7,7 +7,7 @@ import { MyContext } from '../Context/context';
 import { FaAddressCard } from "react-icons/fa";
 import { MdPropaneTank } from "react-icons/md";
 import { PiSpeakerSimpleHighFill } from "react-icons/pi";
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { FaArrowRight, FaQrcode, FaClock, FaMobileAlt } from 'react-icons/fa';
 
 function QuickRespose() {
@@ -40,7 +40,7 @@ function QuickRespose() {
     }
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -50,15 +50,14 @@ function QuickRespose() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   };
@@ -76,6 +75,7 @@ function QuickRespose() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="text-center md:text-left mb-8 md:mb-12"
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -122,7 +122,7 @@ function QuickRespose() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
+                      transition={{ delay: idx * 0.1, duration: 0.4 }}
                       className={`
                         p-4 md:p-5 rounded-2xl text-center
                         bg-white/10 backdrop-blur-sm
@@ -157,7 +157,7 @@ function QuickRespose() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.3, duration: 0.4 }}
             className="flex justify-center md:justify-start mb-12 md:mb-16"
           >
             <Link

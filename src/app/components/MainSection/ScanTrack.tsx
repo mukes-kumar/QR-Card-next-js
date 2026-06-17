@@ -1,7 +1,7 @@
 import React from 'react'
 
 type IsBool={
-  isOpacity:boolean,
+  isOpacity: boolean,
   scanTrack: string
 }
 

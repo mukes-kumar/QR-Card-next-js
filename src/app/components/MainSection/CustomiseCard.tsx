@@ -4,7 +4,7 @@ import { MyContext } from '../Context/context';
 import { FaMobileAlt } from "react-icons/fa";
 import { IoBarChartSharp } from "react-icons/io5";
 import { IoIosColorPalette, IoLogoBuffer } from "react-icons/io";
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion'
 
 function CustomiseCard() {
   const bool = useContext(MyContext)
@@ -45,7 +45,7 @@ function CustomiseCard() {
   ];
 
   // Animation variants
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -55,7 +55,7 @@ function CustomiseCard() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -116,6 +116,7 @@ function CustomiseCard() {
         >
           {productName.map((item, index) => {
             const Icon = item.icon;
+            console.log(index);
             return (
               <motion.div
                 key={item.name}

@@ -1,10 +1,10 @@
 'use client'
 import React, { useContext, useState } from 'react'
 import { MyContext } from '../../Context/context'
-import { motion } from 'framer-motion'
-import { FaArrowsRotate, FaLock, FaChartLine, FaQrcode, FaInfinity, FaCheck, FaXmark } from 'react-icons/fa6'
+import { motion, Variants } from 'framer-motion'
+import { FaArrowsRotate, FaLock, FaChartLine, FaInfinity, FaCheck, FaXmark } from 'react-icons/fa6'
 import { IoMdStats, IoMdRefresh } from 'react-icons/io'
-import { MdOutlineQrCodeScanner, MdOutlineEdit } from 'react-icons/md'
+import { MdOutlineQrCodeScanner } from 'react-icons/md'
 import { FaEdit } from 'react-icons/fa'
 
 function DynamicVSStaticQR() {
@@ -30,7 +30,7 @@ function DynamicVSStaticQR() {
     ]
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -40,15 +40,14 @@ function DynamicVSStaticQR() {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20
+        duration: 0.4,
+        ease: "easeOut"
       }
     }
   };
@@ -66,6 +65,7 @@ function DynamicVSStaticQR() {
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
             className="text-center mb-8 md:mb-12"
           >
             <span className={`
@@ -102,6 +102,7 @@ function DynamicVSStaticQR() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="flex justify-center mb-8 md:mb-12"
           >
             <div className={`
@@ -213,7 +214,7 @@ function DynamicVSStaticQR() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
+            transition={{ delay: 0.5, duration: 0.4 }}
             className={`
               mt-8 md:mt-12 p-4 md:p-6 rounded-2xl text-center
               ${bool

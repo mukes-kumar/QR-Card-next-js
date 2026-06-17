@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { MyContext } from '../../Context/context';
 import { motion } from 'framer-motion'
-import { FaArrowRight, FaChartLine, FaEdit, FaGlobe, FaUsers, FaClock } from 'react-icons/fa'
+import { FaArrowRight, FaChartLine, FaEdit, FaGlobe, FaUsers } from 'react-icons/fa'
 
 type cart = {
   name: string,
